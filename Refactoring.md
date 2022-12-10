@@ -9,3 +9,9 @@ You've been asked to refactor the function `deterministicPartitionKey` in [`dpk.
 You will be graded on the exhaustiveness and quality of your unit tests, the depth of your refactor, and the level of insight into your thought process provided by the written explanation.
 
 ## Your Explanation Here
+
+I first started with writing different scenarios as test cases for the original given functions.
+Next, I narrowed it down to 3 cases which can be solved using 3 ifs with immediate return values...
+Next, I started refactoring while running test cases in parallel and I ended making the function to follow
+a hierarchial set of rules starting with the whole object with partition key available and so on,
+Now its easy to understand going down the order of if statements

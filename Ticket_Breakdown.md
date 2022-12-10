@@ -1,4 +1,5 @@
 # Ticket Breakdown
+
 We are a staffing company whose primary purpose is to book Agents at Shifts posted by Facilities on our platform. We're working on a new feature which will generate reports for our client Facilities containing info on how many hours each Agent worked in a given quarter by summing up every Shift they worked. Currently, this is how the process works:
 
 - Data is saved in the database in the Facilities, Agents, and Shifts tables
@@ -9,10 +10,27 @@ We are a staffing company whose primary purpose is to book Agents at Shifts post
 
 **Currently, the id of each Agent on the reports we generate is their internal database id. We'd like to add the ability for Facilities to save their own custom ids for each Agent they work with and use that id when generating reports for them.**
 
-
 Based on the information given, break this ticket down into 2-5 individual tickets to perform. Provide as much detail for each ticket as you can, including acceptance criteria, time/effort estimates, and implementation details. Feel free to make informed guesses about any unknown details - you can't guess "wrong".
-
 
 You will be graded on the level of detail in each ticket, the clarity of the execution plan within and between tickets, and the intelligibility of your language. You don't need to be a native English speaker, but please proof-read your work.
 
 ## Your Breakdown Here
+
+1. Create a new table with facility id and agent id mapping
+   Acceptance Criteria:
+
+   1. Create a new table facitiliy_agent with columns facitily_agent_id(SEQUENCE), facility_id, agent_id.
+   2. Populate table from the existing facility and agent tables
+      Time - 2h (depending on table sizes)
+
+2. Add new column facility_agent_id to facilities table
+   Acceptance Criteria:
+
+   1. Add foreign key (facility_agent_id) to facilities table
+   2. Update facility_agent_id in facilities table appropriately from the facility_agent table
+      Time - 2h (depending on table sizes)
+
+3. Update getShiftsByFacility function to use facitiliy_agent_id
+   Acceptance Criteria:
+   1. Replace agent_id with facility_agent_id in the function
+      Time - 30min
